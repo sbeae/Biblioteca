@@ -61,6 +61,14 @@ public class VentanaMenu extends VentanaBase {
 			new VentanaRegistrar(biblioteca);
 			this.dispose();
 		}
+		if (event.getSource() == btPrestar) {
+			new VentanaPrestar(biblioteca);
+			this.dispose();
+		}
+		if (event.getSource() == btDevolver) {
+			new VentanaDevolver(biblioteca);
+			this.dispose();
+		}
 	}
 
 }

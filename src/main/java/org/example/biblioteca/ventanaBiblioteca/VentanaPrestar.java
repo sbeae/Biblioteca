@@ -19,29 +19,49 @@ public class VentanaPrestar extends VentanaBase {
 		this.biblioteca = biblioteca;
 		generarElementosVentana();
 	}
+	private void generarElementosVentana() {
+		generarBotonPrestarLibro();
+		generarBotonPrestarRevista();
+		generarBotonRegresar();
+	}
+	public int getCentro(int largo){
+		return this.getWidth() / 2 - largo;
+	}
 
 	public void generarBotonPrestarLibro() {
-		// TODO - implement VentanaPrestar.generarBotonPrestarLibro
-		throw new UnsupportedOperationException();
+		btPrestarLibro = generarBoton("Prestar libro", 150, 50, 150, 30);
+		this.add(btPrestarLibro);
+		btPrestarLibro.addActionListener(this);
+
 	}
 
 	public void generarBotonPrestarRevista() {
-		// TODO - implement VentanaPrestar.generarBotonPrestarRevista
-		throw new UnsupportedOperationException();
+		btPrestarRevista = generarBoton("Prestar revista", 150, 100, 150, 30);
+		this.add(btPrestarRevista);
+		btPrestarRevista.addActionListener(this);
+
 	}
 
 	public void generarBotonRegresar() {
-		// TODO - implement VentanaPrestar.generarBotonRegresar
-		throw new UnsupportedOperationException();
+		btRegresar = generarBoton("Regresar", 150, 250, 150, 30);
+		this.add(btRegresar);
+		btRegresar.addActionListener(this);
 	}
 
-	/**
-	 * 
-	 * @param event
-	 */
+
 	public void actionPerformed(ActionEvent event) {
-		// TODO - implement VentanaPrestar.actionPerformed
-		throw new UnsupportedOperationException();
+		if (event.getSource() == btPrestarLibro) {
+			new VentanaPrestarLibro(biblioteca);
+			this.dispose();
+		}
+		if (event.getSource() == btPrestarRevista) {
+			new VentanaPrestarRevista(biblioteca);
+			this.dispose();
+		}
+		if (event.getSource() == btRegresar) {
+			new VentanaMenu(biblioteca);
+			this.dispose();
+		}
 	}
 
 }

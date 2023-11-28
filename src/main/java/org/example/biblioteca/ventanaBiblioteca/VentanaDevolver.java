@@ -11,10 +11,7 @@ public class VentanaDevolver extends VentanaBase {
 	private JButton btRegresar;
 	private Biblioteca biblioteca;
 
-	/**
-	 * 
-	 * @param biblioteca
-	 */
+
 	public VentanaDevolver(Biblioteca biblioteca) {
 		super("Devolver", 500, 520);
 		this.biblioteca = biblioteca;
@@ -27,8 +24,9 @@ public class VentanaDevolver extends VentanaBase {
 	}
 
 	public void generarBotonDevolverLibro() {
-		// TODO - implement VentanaDevolver.generarBotonDevolverLibro
-		throw new UnsupportedOperationException();
+		btDevolverLibro = generarBoton("Devolver libro", 150, 50, 150, 30);
+		this.add(btDevolverLibro);
+		btDevolverLibro.addActionListener(this);
 	}
 
 	public void generarBotonDevolverRevista() {

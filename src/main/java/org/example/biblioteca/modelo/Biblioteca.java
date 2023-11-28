@@ -1,4 +1,6 @@
 package org.example.biblioteca.modelo;
+import org.example.biblioteca.datos.GestorDatos;
+
 import java.util.ArrayList;
 import java.util.*;
 
@@ -6,6 +8,7 @@ public class Biblioteca {
 
 	ArrayList<Libro> libros;
 	ArrayList<Revista> revistas;
+	GestorDatos gestor= new GestorDatos();
 
 	/**
 	 * 
@@ -43,22 +46,12 @@ public class Biblioteca {
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param libro
-	 */
 	public void registroLibro(Libro libro) {
-		// TODO - implement Biblioteca.registroLibro
-		throw new UnsupportedOperationException();
+		gestor.registrarLibroArchivo(libro);
 	}
 
-	/**
-	 * 
-	 * @param revista
-	 */
 	public void registroRevista(Revista revista) {
-		// TODO - implement Biblioteca.registroRevista
-		throw new UnsupportedOperationException();
+		gestor.registrarRevistaArchivo(revista);
 	}
 
 	/**
@@ -79,13 +72,10 @@ public class Biblioteca {
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param issn
-	 */
-	public void prestarRevista(int issn) {
-		// TODO - implement Biblioteca.prestarRevista
-		throw new UnsupportedOperationException();
+
+	public void prestarRevista(String issn, boolean estado) {
+		boolean prestado=true;
+		gestor.modificarPrestadoRevistaArchivo(issn,prestado);
 	}
 
 	/**
@@ -96,5 +86,12 @@ public class Biblioteca {
 		// TODO - implement Biblioteca.devolverRevista
 		throw new UnsupportedOperationException();
 	}
+	public boolean existeLibro(String isbn){
+		return gestor.existeLibro(isbn);
+	}
+	public boolean existeRevista(String issn){
+		return gestor.existeRevista(issn);
+	}
+
 
 }
