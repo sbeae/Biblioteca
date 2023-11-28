@@ -1,7 +1,7 @@
 # Integrantes
-Joaquin Silva
-Gerson Urrea
-Sebastian Martinez
+Joaquin Silva,
+Gerson Urrea,
+Sebastian Martinez.
 
 # Diagrama de clases UML
 
