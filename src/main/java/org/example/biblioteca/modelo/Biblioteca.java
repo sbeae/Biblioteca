@@ -10,40 +10,15 @@ public class Biblioteca {
 	ArrayList<Revista> revistas;
 	GestorDatos gestor= new GestorDatos();
 
-	/**
-	 * 
-	 * @param ISBN
-	 */
-	public Libro buscarlibroISBN(String ISBN) {
-		// TODO - implement Biblioteca.buscarlibroISBN
-		throw new UnsupportedOperationException();
+
+	public String buscarlibroISBN(String ISBN) {
+		Libro libro=gestor.buscarLibroIsbnArchivo(ISBN);
+		return libro.toStringMostrar();
 	}
 
-	/**
-	 * 
-	 * @param autor
-	 */
-	public Libro buscarLibroAUTOR(String autor) {
-		// TODO - implement Biblioteca.buscarLibroAUTOR
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param titulo
-	 */
-	public Libro buscarLibroTitulo(String titulo) {
-		// TODO - implement Biblioteca.buscarLibroTitulo
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param ISSN
-	 */
-	public Revista buscarRevistaISSN(int ISSN) {
-		// TODO - implement Biblioteca.buscarRevistaISSN
-		throw new UnsupportedOperationException();
+	public String buscarRevistaISSN(String ISSN) {
+		Revista revista=gestor.buscarRevistaIssnArchivo(ISSN);
+		return revista.toStringMostrar();
 	}
 
 	public void registroLibro(Libro libro) {
@@ -54,22 +29,18 @@ public class Biblioteca {
 		gestor.registrarRevistaArchivo(revista);
 	}
 
-	/**
-	 * 
-	 * @param isbn
-	 */
-	public void prestarLibro(int isbn) {
-		// TODO - implement Biblioteca.prestarLibro
-		throw new UnsupportedOperationException();
+	public void prestarLibro(String isbn, boolean estado) {
+		boolean prestado=true;
+		gestor.modificarPrestadoLibroArchivo(isbn,prestado);
 	}
 
 	/**
 	 * 
 	 * @param isbn
 	 */
-	public void devolverLibro(int isbn) {
-		// TODO - implement Biblioteca.devolverLibro
-		throw new UnsupportedOperationException();
+	public void devolverLibro(String isbn, boolean estado) {
+		boolean prestado=false;
+		gestor.modificarPrestadoLibroArchivo(isbn,prestado);
 	}
 
 
@@ -82,9 +53,9 @@ public class Biblioteca {
 	 * 
 	 * @param issn
 	 */
-	public void devolverRevista(int issn) {
-		// TODO - implement Biblioteca.devolverRevista
-		throw new UnsupportedOperationException();
+	public void devolverRevista(String issn, boolean estado) {
+		boolean prestado= false;
+		gestor.modificarPrestadoRevistaArchivo(issn, prestado);
 	}
 	public boolean existeLibro(String isbn){
 		return gestor.existeLibro(isbn);

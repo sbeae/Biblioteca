@@ -154,16 +154,15 @@ public class GestorDatos {
 		}
 		return false;
 	}
-	ArrayList<Planta> plantas = obtenerPlantasArchivo();
-        for(Planta planta: plantas){
-		if(planta.getNombre().equals(plant.getNombre()) && planta.getId()==plant.getId()){
-			return true;
+
+	public boolean existeRevista(String issn) {
+		ArrayList<Revista> revistas = obtenerRevistas();
+		for (Revista revista2 : revistas){
+			if (revista2.getISSN().equals(issn)) {
+				return true;
+			}
 		}
-	}
-        return false;
-	public boolean existeRevista(Revista revista) {
-		// TODO - implement GestorDatos.existeRevista
-		throw new UnsupportedOperationException();
+		return false;
 	}
 
 
