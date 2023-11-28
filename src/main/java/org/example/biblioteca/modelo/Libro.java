@@ -5,34 +5,34 @@ public class Libro extends MaterialBiblioteca implements Prestable {
 	private String titulo;
 	private String autor;
 	private boolean prestado;
-	private int ISBN;
-	private int edicion;
+	private String ISBN;
+	private String edicion;
 
-	public Libro(String titulo, String autor, int isbn, int edicion){
-		titulo=titulo;
-		autor=autor;
-		prestado=false;
-		ISBN=isbn;
-		edicion=edicion;
+	public Libro(String titulo, String autor, String isbn, String edicion){
+		this.titulo=titulo;
+		this.autor=autor;
+		this.prestado=false;
+		this.ISBN=isbn;
+		this.edicion=edicion;
 	}
-	public Libro(String titulo, String autor, int isbn, int edicion,boolean prestado){
-		titulo=titulo;
-		autor=autor;
-		prestado=prestado;
-		ISBN=isbn;
-		edicion=edicion;
+	public Libro(String titulo, String autor, String isbn, String edicion,boolean prestado){
+		this.titulo=titulo;
+		this.autor=autor;
+		this.prestado=prestado;
+		this.ISBN=isbn;
+		this.edicion=edicion;
 
 	}
 
-	public int getEdicion() {
+	public String getEdicion() {
 		return this.edicion;
 	}
 
-	public void setEdicion(int edicion) {
+	public void setEdicion(String edicion) {
 		this.edicion = edicion;
 	}
 
-	public int getIsbn(){
+	public String getIsbn(){
 		return ISBN;
 	}
 
@@ -43,9 +43,13 @@ public class Libro extends MaterialBiblioteca implements Prestable {
 	public  void devolver(){
 		prestado=false;
 	}
-
 	@Override
 	public String toString(){
 		return titulo+","+autor+","+ISBN+","+edicion+","+prestado;
+	}
+
+
+	public String toStringMostrar(){
+		return "Título: "+titulo+"\nAutor: "+autor+"\nISBN: "+ISBN+"\nEdición: "+edicion+"\nPrestado: "+prestado;
 	}
 }

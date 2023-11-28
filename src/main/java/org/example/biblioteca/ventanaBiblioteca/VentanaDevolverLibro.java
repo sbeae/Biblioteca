@@ -1,6 +1,8 @@
 package org.example.biblioteca.ventanaBiblioteca;
 
-import modelo.*;
+import org.example.biblioteca.modelo.*;
+import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 public class VentanaDevolverLibro extends VentanaBase {
 
@@ -14,23 +16,33 @@ public class VentanaDevolverLibro extends VentanaBase {
 	 * @param biblioteca
 	 */
 	public VentanaDevolverLibro(Biblioteca biblioteca) {
-		// TODO - implement VentanaDevolverLibro.VentanaDevolverLibro
-		throw new UnsupportedOperationException();
+		super("Prestar libro", 500, 520);
+		this.biblioteca = biblioteca;
+		generarElementosVentana();
+	}
+	private void generarElementosVentana() {
+		generarTextIsbn();
+		generarBotonIngresar();
+		generarBotonRegresar();
 	}
 
 	public void generarTextIsbn() {
-		// TODO - implement VentanaDevolverLibro.generarTextIsbn
-		throw new UnsupportedOperationException();
+		String textoNombre = "ISBN:";
+		super.generarLabel(textoNombre, 100, 20, 150, 20);
+		tfIsbn = super.generarTextField(100, 50, 250, 20);
+		this.add(tfIsbn);
 	}
 
 	public void generarBotonRegresar() {
-		// TODO - implement VentanaDevolverLibro.generarBotonRegresar
-		throw new UnsupportedOperationException();
+		btRegresar = generarBoton("Regresar", 100, 100, 100, 30);
+		this.add(btRegresar);
+		btRegresar.addActionListener(this);
 	}
 
 	public void generarBotonIngresar() {
-		// TODO - implement VentanaDevolverLibro.generarBotonIngresar
-		throw new UnsupportedOperationException();
+		btIngresar = generarBoton("Ingresar", 250, 100, 100, 30);
+		this.add(btIngresar);
+		btIngresar.addActionListener(this);
 	}
 
 	/**
@@ -38,8 +50,14 @@ public class VentanaDevolverLibro extends VentanaBase {
 	 * @param event
 	 */
 	public void actionPerformed(ActionEvent event) {
-		// TODO - implement VentanaDevolverLibro.actionPerformed
-		throw new UnsupportedOperationException();
+		if (event.getSource() == btIngresar) {
+			biblioteca.devolverLibro(tfIsbn.getText(),false);
+			JOptionPane.showMessageDialog(this, "Libro devuelto correctamente");
+		}
+		if (event.getSource() == btRegresar) {
+			new VentanaMenu(biblioteca);
+			this.dispose();
+		}
 	}
 
 }

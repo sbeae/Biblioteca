@@ -45,24 +45,6 @@ public class Biblioteca {
 
 	/**
 	 * 
-	 * @param titulo
-	 */
-	public Revista buscarRevistaTitulo(String titulo) {
-		// TODO - implement Biblioteca.buscarRevistaTitulo
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param autor
-	 */
-	public Revista buscarRevistaAutor(String autor) {
-		// TODO - implement Biblioteca.buscarRevistaAutor
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
 	 * @param libro
 	 */
 	public void registroLibro(Libro libro) {

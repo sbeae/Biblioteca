@@ -16,8 +16,14 @@ public class VentanaDevolver extends VentanaBase {
 	 * @param biblioteca
 	 */
 	public VentanaDevolver(Biblioteca biblioteca) {
-		super("Menú Devolver", 800, 520);
+		super("Devolver", 500, 520);
 		this.biblioteca = biblioteca;
+		generarElementosVentana();
+	}
+	private void generarElementosVentana() {
+		generarBotonDevolverRevista();
+		generarBotonDevolverLibro();
+		generarBotonRegresar();
 	}
 
 	public void generarBotonDevolverLibro() {
@@ -26,13 +32,15 @@ public class VentanaDevolver extends VentanaBase {
 	}
 
 	public void generarBotonDevolverRevista() {
-		// TODO - implement VentanaDevolver.generarBotonDevolverRevista
-		throw new UnsupportedOperationException();
+		btDevolverRevista = generarBoton("Devolver revista", 150, 100, 150, 30);
+		this.add(btDevolverRevista);
+		btDevolverRevista.addActionListener(this);
 	}
 
 	public void generarBotonRegresar() {
-		// TODO - implement VentanaDevolver.generarBotonRegresar
-		throw new UnsupportedOperationException();
+		btRegresar = generarBoton("Regresar", 150, 250, 150, 30);
+		this.add(btRegresar);
+		btRegresar.addActionListener(this);
 	}
 
 	/**
@@ -40,8 +48,18 @@ public class VentanaDevolver extends VentanaBase {
 	 * @param event
 	 */
 	public void actionPerformed(ActionEvent event) {
-		// TODO - implement VentanaDevolver.actionPerformed
-		throw new UnsupportedOperationException();
+		if (event.getSource() == btDevolverLibro) {
+			new VentanaDevolverLibro(biblioteca);
+			this.dispose();
+		}
+		if (event.getSource() == btDevolverRevista) {
+			new VentanaDevolverRevista(biblioteca);
+			this.dispose();
+		}
+		if (event.getSource() == btRegresar) {
+			new VentanaMenu(biblioteca);
+			this.dispose();
+		}
 	}
 
 }

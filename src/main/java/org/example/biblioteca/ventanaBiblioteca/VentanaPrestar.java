@@ -15,8 +15,9 @@ public class VentanaPrestar extends VentanaBase {
 	 * @param biblioteca
 	 */
 	public VentanaPrestar(Biblioteca biblioteca) {
-		super("Menú Prestar", 800, 520);
+		super("Prestar", 500, 520);
 		this.biblioteca = biblioteca;
+		generarElementosVentana();
 	}
 
 	public void generarBotonPrestarLibro() {
